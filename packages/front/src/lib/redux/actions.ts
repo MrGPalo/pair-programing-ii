@@ -1,5 +1,5 @@
 import {
-  addIngredient, addRecipe, deleteIngredient, getIngredients,
+  addIngredient, addRecipe, deleteIngredient, deleteRecipe, getIngredients, getRecipe,
 } from '../api';
 
 // Redux action generator
@@ -57,6 +57,12 @@ export const refreshServerIngredients = () => async (dispatch) => {
   ingreds.forEach((ing) => dispatch(addItem(ing)));
 };
 
+export const refreshServerRecipes = () => async (dispatch) => {
+  const ingreds = await getRecipe();
+  dispatch(deleteAll());
+  ingreds.forEach((ing) => dispatch(addItem(ing)));
+};
+
 // THUNK: delete ingredient on server via API call and refresh
 // local visualization by bruteforce get all ingredients
 // aNote: this can be improve by removing the local deleted ingredient
@@ -64,4 +70,9 @@ export const refreshServerIngredients = () => async (dispatch) => {
 export const deleteOneIngredient = (id:string) => async (dispatch) => {
   await deleteIngredient(id);
   dispatch(refreshServerIngredients);
+};
+
+export const deleteOneRecipe = (id: string) => async (dispatch) => {
+  await deleteRecipe(id);
+  dispatch(refreshServerRecipes);
 };

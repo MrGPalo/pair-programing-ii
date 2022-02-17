@@ -5,6 +5,8 @@ import styled from 'styled-components';
 import { Form_Recipe } from './components/FormRecipe';
 import { InputRecipe } from './components/InputRecipe';
 import { Recipe } from './components/Recipe';
+import { RecipeContext } from './components/RecipeContext';
+import { RecipeItem } from './components/RecipeItem';
 import { ShoppingList } from './components/ShoppingList';
 import { store } from './lib/redux/store';
 
@@ -40,7 +42,7 @@ export const App = () => (
           <New_Recipe />
         </Box> */}
         <Box>
-          <InputRecipe />
+          <RecipeContext />
         </Box>
       </Flex>
     </Provider>

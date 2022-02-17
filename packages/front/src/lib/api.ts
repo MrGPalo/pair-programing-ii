@@ -29,7 +29,7 @@ export const addRecipe = async (data) => {
   return res.data;
 };
 
-export const deteleRecipe = async (recId) => {
+export const deleteRecipe = async (recId) => {
   const res = await api.get(`/recipe/${recId}/delete`);
   return res.data;
 };

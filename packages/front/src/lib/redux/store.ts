@@ -8,6 +8,13 @@ const initState = {
     name: 'apple',
     quantity: '3',
   }],
+  recipes: [{
+    _id: 1,
+    name: 'Tortilla',
+    instructions: 'Lorem ipsum dolor sit amet, consectetur adip',
+    price: 50,
+    ingredients: [{ name: 'patata', quantity: '1kg' }],
+  }],
 };
 
 // eslint-disable-next-line default-param-last
@@ -17,11 +24,13 @@ function routReducer(state = initState, action) {
       return {
         ...state,
         ingredients: [...state.ingredients, action.ingredient],
+        recipes: [...state.recipes, action.recipes],
       };
     case 'DELETEALL':
       return {
         ...state,
         ingredients: [],
+        recipes: [],
       };
     default:
       return state;
