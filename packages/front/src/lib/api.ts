@@ -18,3 +18,18 @@ export const deleteIngredient = async (ingId) => {
   const res = await api.get(`/ingredients/${ingId}/delete`);
   return res.data;
 };
+
+export const getRecipe = async () => {
+  const res = await api.get('/recipe');
+  return res.data;
+};
+
+export const addRecipe = async (data) => {
+  const res = await api.post('/recipe', data);
+  return res.data;
+};
+
+export const deteleRecipe = async (recId) => {
+  const res = await api.get(`/recipe/${recId}/delete`);
+  return res.data;
+};

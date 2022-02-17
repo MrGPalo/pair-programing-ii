@@ -10,12 +10,12 @@ export const ShoppingList = (props) => {
 
   const { ingredients } = useIngredient();
 
-  useEffect(() => {
-    const intervalID = setInterval(() => {
-      dispatch(refreshServerIngredients());
-    }, 5000);
-    return () => clearInterval(intervalID);
-  }, []);
+  // useEffect(() => {
+  //   const intervalID = setInterval(() => {
+  //     dispatch(refreshServerIngredients());
+  //   }, 5000);
+  //   return () => clearInterval(intervalID);
+  // }, []);
 
   return (
     <div>

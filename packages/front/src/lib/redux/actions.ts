@@ -1,4 +1,6 @@
-import { addIngredient, deleteIngredient, getIngredients } from '../api';
+import {
+  addIngredient, addRecipe, deleteIngredient, getIngredients,
+} from '../api';
 
 // Redux action generator
 // ACTION: Add item to local store
@@ -12,7 +14,7 @@ export const addItem = (ingredient) => {
 
 // ACTION: Delete all items from local store
 export const deleteAll = () => {
-  console.log('Removien all items');
+  console.log('Removing all items');
   return {
     type: 'DELETEALL',
   };
@@ -39,6 +41,13 @@ export const saveOnServer = (ingredient) => {
   };
 };
 
+export const saveOnServerRecipe = (recipe) => {
+  console.log('Saving on server...');
+  return async (dispatch) => {
+    const saveRec = await addRecipe(recipe);
+    dispatch(addItem(saveRec));
+  };
+};
 // THUNK: request API ingredients, Dispatch deleteAll() action,
 // dispatch one addItem action for each ingredient recived by the API
 export const refreshServerIngredients = () => async (dispatch) => {

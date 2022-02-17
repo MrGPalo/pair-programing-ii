@@ -3,6 +3,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import styled from 'styled-components';
 import { Form_Recipe } from './components/FormRecipe';
+import { InputRecipe } from './components/InputRecipe';
 import { Recipe } from './components/Recipe';
 import { ShoppingList } from './components/ShoppingList';
 import { store } from './lib/redux/store';
@@ -32,11 +33,14 @@ export const App = () => (
         <Box>
           <Recipe />
         </Box>
-        <Box>
+        {/* <Box>
           <Form_Recipe />
         </Box>
         <Box>
           <New_Recipe />
+        </Box> */}
+        <Box>
+          <InputRecipe />
         </Box>
       </Flex>
     </Provider>

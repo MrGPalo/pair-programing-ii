@@ -15,4 +15,4 @@ const schema = new Schema({
   ingredients: [{ name: { type: String, require: true }, quantity: { type: String, require: true } }],
 });
 
-export const Ingredient = mongoose.model<Recipe>('Recipe', schema);
+export const Recipes = mongoose.model<Recipe>('Recipe', schema);

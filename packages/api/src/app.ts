@@ -3,6 +3,7 @@ import fastifyCors from 'fastify-cors';
 import { conectDB } from './lib/db';
 import { ingredients_router } from './routers/ingredients_router';
 import { main_router } from './routers/main_router';
+import { recipe_router } from './routers/recipe_router';
 
 export const main_app: FastifyPluginAsync = async (app) => {
   conectDB();
@@ -25,5 +26,6 @@ export const main_app: FastifyPluginAsync = async (app) => {
   });
 
   app.register(main_router);
+  app.register(recipe_router, { prefix: '/recipe' });
   app.register(ingredients_router, { prefix: '/ingredients' });
 };
