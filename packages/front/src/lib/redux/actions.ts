@@ -12,6 +12,14 @@ export const addItem = (ingredient) => {
   };
 };
 
+export const addRecipeItem = (recipe) => {
+  console.log('Adding recipe item');
+  return {
+    type: 'ADDITEM',
+    recipe,
+  };
+};
+
 // ACTION: Delete all items from local store
 export const deleteAll = () => {
   console.log('Removing all items');
@@ -45,7 +53,7 @@ export const saveOnServerRecipe = (recipe) => {
   console.log('Saving on server...');
   return async (dispatch) => {
     const saveRec = await addRecipe(recipe);
-    dispatch(addItem(saveRec));
+    dispatch(addRecipeItem(saveRec));
   };
 };
 // THUNK: request API ingredients, Dispatch deleteAll() action,
@@ -58,9 +66,9 @@ export const refreshServerIngredients = () => async (dispatch) => {
 };
 
 export const refreshServerRecipes = () => async (dispatch) => {
-  const ingreds = await getRecipe();
+  const recips = await getRecipe();
   dispatch(deleteAll());
-  ingreds.forEach((ing) => dispatch(addItem(ing)));
+  recips.forEach((rec) => dispatch(addRecipeItem(rec)));
 };
 
 // THUNK: delete ingredient on server via API call and refresh

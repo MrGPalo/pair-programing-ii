@@ -13,7 +13,7 @@ const initState = {
     name: 'Tortilla',
     instructions: 'Lorem ipsum dolor sit amet, consectetur adip',
     price: 50,
-    ingredients: [{ name: 'patata', quantity: '1kg' }],
+    ingredients: 'muchas cosas',
   }],
 };
 

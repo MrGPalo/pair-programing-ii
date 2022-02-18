@@ -24,10 +24,7 @@ const internalHasRecipes = (recipes, ing) => recipes.filter((e) => e.name === in
 // };
 
 export const useRecipes = () => {
-  const recipes = useSelector((state) => {
-    state.recipes;
-  });
-  console.log(recipes);
+  const recipes = useSelector((state) => state.recipes);
   return {
     recipes,
     hasRecipes: (ing) => internalHasRecipes(recipes, ing),

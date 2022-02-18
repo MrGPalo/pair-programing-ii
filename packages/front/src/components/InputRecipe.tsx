@@ -41,7 +41,7 @@ export const InputRecipe = connect()(({ dispatch }) => {
   } = useForm(
     {
       defaultValues: {
-        name: '', instructions: '', price: '', ingredients: { name: '', quantity: '' },
+        name: '', instructions: '', price: '', ingredients: '',
       },
     },
   );
@@ -73,13 +73,13 @@ export const InputRecipe = connect()(({ dispatch }) => {
               <Error field="price" errors={errors} />
             </FormElement>
             <FormElement>
-              <input placeholder="Ingredient name" {...register('ingredients.name', { required: 'Add ingredient name' })} />
-              <Error field="ingredients-name" errors={errors} />
+              <input placeholder="Ingredient name" {...register('ingredients', { required: 'Add ingredient name' })} />
+              <Error field="ingredients" errors={errors} />
             </FormElement>
-            <FormElement>
+            {/* <FormElement>
               <input placeholder="Ingredient quantity" {...register('ingredients.quantity', { required: 'Add ingredient quantity' })} />
               <Error field="ingredients-quantity" errors={errors} />
-            </FormElement>
+            </FormElement> */}
             <FormElement>
               <button onClick={submit} type="button">Add item</button>
             </FormElement>

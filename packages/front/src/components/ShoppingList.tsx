@@ -9,13 +9,14 @@ export const ShoppingList = (props) => {
   const dispatch = useDispatch();
 
   const { ingredients } = useIngredient();
+  console.log(ingredients);
 
-  // useEffect(() => {
-  //   const intervalID = setInterval(() => {
-  //     dispatch(refreshServerIngredients());
-  //   }, 5000);
-  //   return () => clearInterval(intervalID);
-  // }, []);
+  useEffect(() => {
+    const intervalID = setInterval(() => {
+      dispatch(refreshServerIngredients());
+    }, 5000);
+    return () => clearInterval(intervalID);
+  }, []);
 
   return (
     <div>

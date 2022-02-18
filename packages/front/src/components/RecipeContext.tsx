@@ -9,13 +9,13 @@ export const RecipeContext = (props) => {
   const dispatch = useDispatch();
 
   const { recipes } = useRecipes();
-  console.log(recipes);
-  // useEffect(() => {
-  //   const intervalID = setInterval(() => {
-  //     dispatch(refreshServerRecipes());
-  //   }, 5000);
-  //   return () => clearInterval(intervalID);
-  // }, []);
+
+  useEffect(() => {
+    const intervalID = setInterval(() => {
+      dispatch(refreshServerRecipes());
+    }, 5000);
+    return () => clearInterval(intervalID);
+  }, []);
 
   return (
     <div>
@@ -24,7 +24,7 @@ export const RecipeContext = (props) => {
         <InputRecipe />
       </div>
       {/* <pre>{JSON.stringify(ingredients, null, 2)}</pre> */}
-       {/* {recipes.map((it) => <RecipeItem key={it._id} item={it} />)}  */}
+      {recipes.map((e) => <RecipeItem key={e._id} item={e} />)}
 
     </div>
   );
