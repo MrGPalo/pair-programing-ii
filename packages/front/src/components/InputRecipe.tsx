@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { saveOnServerRecipe } from '../lib/redux/actions';
+import { validator } from '../lib/validator';
 import { LoadingSpiner } from './LoadingSpinner';
 
 const FormFlex = styled.div`
@@ -48,9 +49,12 @@ export const InputRecipe = connect()(({ dispatch }) => {
 
   const submit = handleSubmit(async (data) => {
     // console.log(data);
-    await timeout(2000);
-    await dispatch(saveOnServerRecipe(data));
-    reset();
+    // TODO validator function
+    if (validator(data.name)) {
+      await timeout(2000);
+      await dispatch(saveOnServerRecipe(data));
+      reset();
+    } else console.log('You have to intruduce another recipe');
   });
   const internalState = watch();
 
