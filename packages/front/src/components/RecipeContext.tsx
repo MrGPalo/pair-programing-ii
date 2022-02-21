@@ -10,12 +10,12 @@ export const RecipeContext = (props) => {
 
   const { recipes } = useRecipes();
 
-  // useEffect(() => {
-  //   const intervalID = setInterval(() => {
-  //     dispatch(refreshServerRecipes());
-  //   }, 5000);
-  //   return () => clearInterval(intervalID);
-  // }, []);
+  useEffect(() => {
+    const intervalID = setInterval(() => {
+      dispatch(refreshServerRecipes());
+    }, 5000);
+    return () => clearInterval(intervalID);
+  }, []);
 
   return (
     <div>

@@ -3,18 +3,8 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 
 const initState = {
-  ingredients: [{
-    _id: 0,
-    name: 'apple',
-    quantity: '3',
-  }],
-  recipes: [{
-    _id: 1,
-    name: 'Tortilla',
-    instructions: 'Lorem ipsum dolor sit amet, consectetur adip',
-    price: 50,
-    ingredients: 'muchas cosas',
-  }],
+  ingredients: [],
+  recipes: [],
 };
 
 // eslint-disable-next-line default-param-last
@@ -24,6 +14,10 @@ function routReducer(state = initState, action) {
       return {
         ...state,
         ingredients: [...state.ingredients, action.ingredient],
+      };
+    case 'ADDRECIPE':
+      return {
+        ...state,
         recipes: [...state.recipes, action.recipes],
       };
     case 'DELETEALL':

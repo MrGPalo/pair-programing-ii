@@ -15,7 +15,7 @@ export const addItem = (ingredient) => {
 export const addRecipeItem = (recipe) => {
   console.log('Adding recipe item');
   return {
-    type: 'ADDITEM',
+    type: 'ADDRECIPE',
     recipe,
   };
 };
